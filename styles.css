@@ -3,7 +3,7 @@
     --color-primary: hsl(195, 100%, 50%);
     --color-black: rgb(0, 0, 0);
     --color-dark-gray: rgb(46, 46, 46);
-    --color-light-gray: rgb(185, 185, 185);
+    --color-light-gray: rgb(233, 233, 233);
     --color-white: white;
     
     /* Transparency */
@@ -33,6 +33,7 @@ body {
     background: var(--color-black);
     font-family: system-ui, -apple-system, sans-serif;
 }
+
 
 nav {
     position: fixed;
@@ -71,7 +72,7 @@ nav a:hover {
 .highlight {
     color: var(--color-primary);
     text-transform: uppercase;
-    letter-spacing: -5px;
+    /* letter-spacing: -5px; */
 }
 
 #hero {
@@ -84,10 +85,11 @@ nav a:hover {
     color: var(--color-white);
     overflow: hidden;
     padding-inline: var(--spacing-standard);
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,1)), url('images/ryking-uploads-g2Dtp8O2M9k-unsplash.jpg');
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('images/ryking-uploads-g2Dtp8O2M9k-unsplash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border-bottom: 1px solid var(--color-primary);
 
 }
 
@@ -96,9 +98,11 @@ nav a:hover {
 }
 
 #hero p {
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-size: clamp(2.5rem, 10vw, 6rem);
     line-height: 1.1;
     margin-bottom: var(--spacing-standard);
+    text-transform: uppercase;
+    font-weight: 900;
 
 }
 
@@ -146,11 +150,12 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: var(--transition-standard);
-    margin-block: var(--spacing-large);
     text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 10px;
+    opacity: 1;
+    margin-bottom: 30px;
 }
 
 .cta-button:hover {
@@ -167,7 +172,7 @@ button {
     display: block;
     color: var(--color-light-gray);
     font-style: italic;
-    margin-block: calc(var(--spacing-large) * -0.75);
+    margin-block: 45px;
 }
 
 /* .cars {
@@ -198,6 +203,8 @@ button {
     gap: 50px;
     padding: var(--spacing-standard);
     display: none;
+    
+
 }
 
 .car-show {
@@ -211,6 +218,7 @@ button {
 .car-show-mobile {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 .pricing-btn {
@@ -229,14 +237,6 @@ button {
     gap: 10px;
 }
 
-
-.card-mobile:nth-child(1) {
-    background-image: url('./images/ranamotorworks-Vek_2GQ2sGw-unsplash.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 450px;
-    width: 100%;
-}
 
 
 .card {
@@ -274,8 +274,9 @@ button {
 
 .cars-intro h2, .cars-intro-mobile h2, .pricing-container h2, .extra-services-section h2 {
     color: var(--color-white);
-    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-size: clamp(2.5rem, 10vw, 5rem);
     line-height: 1.2;
+    text-transform: uppercase;
     margin-bottom: var(--spacing-standard);
 }
 
@@ -313,6 +314,33 @@ button {
     }
 }
 
+.card-mobile:nth-child(1) {
+    background-image: url('./images/dushawn-jovic-DepcNLe7zNs-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 450px;
+    width: 100%;
+}
+
+
+
+.card-mobile:nth-child(2) {
+    background-image: url('./images/ranamotorworks-Vek_2GQ2sGw-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 450px;
+    width: 100%;
+}
+
+.card-mobile:nth-child(3) {
+    background-image: url('./images/leon-kohle-aTBsSzMCJ0s-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 450px;
+    width: 100%;
+}
+
+
 .pricing-container {
     width: 100%;
     min-height: 100vh;
@@ -330,19 +358,6 @@ button {
     max-width: 700px;
 }
 
-@media(max-width:576px) {
-    .toggle-container {
-        justify-content:  none;
-    }
-    .pricing-container h2{
-        text-align: left;
-    }
-    
-    .pricing-container p {
-        margin:0 auto;
-        max-width: 700px;
-    }
-}
 
 .holder {
     display: grid;
@@ -353,7 +368,7 @@ button {
 }
 
 .pricing-card {
-    background-image: linear-gradient(-45deg, black, rgb(27, 27, 27), rgb(37, 37, 37));
+    background:black;
     border-radius: 1rem;
     padding: 3rem 2rem;
     color: #fff;
@@ -363,7 +378,7 @@ button {
 
 .pricing-icon {
     position: absolute;
-    height: 100px;
+    height: 70px;
     right: 30px;
     top: 30px;
 }
@@ -604,9 +619,7 @@ button {
 
 /* Add these styles to your stylesheet */
 .promo-section {
-    background-image: linear-gradient(to bottom, black, rgba(15, 41, 153, 0.4)),url('./images/michael-lock-NfbUoOFUuco-unsplash.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background:rgb(14, 14, 14);
     padding: 4rem 2rem;
     text-align: center;
     position: relative;
@@ -618,8 +631,9 @@ button {
 .promo-content {
     max-width: 800px;
     margin: 0 auto;
-
 }
+
+
 
 .promo-content button {
     margin: 0 auto;
@@ -672,5 +686,27 @@ button {
 @media(max-width:576px) {
     .toggle-container {
         justify-content:  flex-start !important;
+    }
+}
+
+@media(max-width:576px) {
+
+    .promo-section {
+        text-align: left;
+    }
+    .promo-content {
+        margin: 0px;
+        display: block;
+    }
+    .toggle-container {
+        justify-content:  none;
+    }
+    .pricing-container h2{
+        text-align: left;
+    }
+    
+    .pricing-container p {
+        margin:0 auto;
+        max-width: 700px;
     }
 }

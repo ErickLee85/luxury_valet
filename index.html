@@ -9,6 +9,9 @@
     <title>Luxury Valet</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script defer src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://unpkg.com/gsap@3.12.2/dist/ScrollToPlugin.min.js"></script>
 </head>
 <body>
 
@@ -16,10 +19,7 @@
         <nav>
             <p class="comp-name">Luxury Valet</p>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li></li>
             </ul>
         </nav>
     </header>
@@ -29,12 +29,17 @@
         <!-- Hero/Featured section -->
         <section id="hero">
           <div>
-            <p><span class="highlight"><strong>Elevate </strong></span><br>Your Car's Beauty <br>To Perfection</p>
+            <p><span class="highlight">Elevate</span> Your<br>Ride</p>
             <h1 class="subtext">Premium mobile car detailing in New Plymouth-Inglewood. From basic washes to luxury details, we bring professional valeting services directly to your location.
             </h1>
-            <button class="cta-button">
-                Book Your Valet Service
-            </button>
+            <a href="#exterior-prices">
+                <button class="cta-button">
+                    View Our Services
+                    <svg data-slot="icon" height="25px" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                </button>
+            </a>
             <span class="availability">15% off combined interior & exterior packages</span>
           </div>
         </section>
@@ -45,12 +50,9 @@
                 <p class="subtext">From exotic cars to daily drivers...
                     I aim for high quality service, have an eye for detail and prioritize customer satisfaction. 
                     Service is delivered to your door.
-                    <a href="#exterior-prices">
-                    <button class="pricing-btn">
-                        See Pricing
-                        <svg data-slot="icon" height="25px" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                          </svg>
+                    <a href="tel:02108875353">
+                    <button class="cta-button" style="margin-top: 30px;">
+                        Book now
                     </button>
                 </a>
                 </p>
@@ -76,34 +78,32 @@
                     Service is delivered to your door.
                     <a href="#price-toggle">
                         <button class="pricing-btn">
-                            See Pricing
-                            <svg data-slot="icon" height="25px" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25" stroke-linecap="round" stroke-linejoin="round"></path>
-                              </svg>
+                            BOOK NOW
                         </button>
                     </a>
                 </p>
             </div>
             <div class="car-show-mobile">
-                <div class="card-mobile">
-                </div>
+                <div class="card-mobile"></div>
+                <div class="card-mobile"></div>
+                <div class="card-mobile"></div>
             </div>
         </section>
 
         <div class="toggle-container" id="price-toggle">
             <button class="toggle-btn active" onclick="toggleServices('exterior', event)">
-                Exterior Services
+                Exterior 
                 <img src="./images/icons8-car-48.png" alt="exterior icon">
             </button>
             <button class="toggle-btn" onclick="toggleServices('interior', event)">
-                Interior Services
+                Interior
                 <img src="./images/icons8-seat-50.png" alt="interior icon">
             </button>
         </div>
         
 
         <section class="pricing-container service-content active" id="exterior-prices">
-            <h2><span class="highlight"><strong>Professional</strong></span> Exterior Car Washing Services</h2>
+            <h2><span class="highlight"><strong>Exterior</strong></span> Services</h2>
             <p>Transform your vehicle with our expert detailing services. From basic maintenance to luxury treatments, we provide professional care to keep your car looking its absolute best.</p>
             <div class="holder">
                 <div class="pricing-card">
@@ -219,14 +219,14 @@
             </div>
         </section>
         <section class="pricing-container service-content" id="interior-prices">
-            <h2><span class="highlight"><strong>Professional</strong></span> Interior Car Cleaning Services</h2>
+            <h2><span class="highlight"><strong>Interior</strong></span> Services</h2>
             <p>Experience the luxury of a professionally cleaned car interior. From basic cleaning to premium detailing, we ensure your car's interior is as immaculate as its exterior.</p>
             <div class="holder">
                 <!-- Basic Inside Clean Card -->
                 <div class="pricing-card">
              
                     <div class="card-header">
-                        <div class="package-name">Basic Inside Clean</div>
+                        <div class="package-name">Basic Clean</div>
                         <div class="time">Duration: 1.5 hours</div>
                         <div class="pricing">
                             <div class="price-category">
@@ -257,7 +257,7 @@
                     </svg>
                     <div class="most-popular">Most Popular</div>
                     <div class="card-header">
-                        <div class="package-name">Shine Inside Clean</div>
+                        <div class="package-name">Shine Clean</div>
                         <div class="time">Duration: 2.5 hours</div>
                         <div class="pricing">
                             <div class="price-category">
@@ -287,7 +287,7 @@
                 <!-- Luxury Inside Clean Card -->
                 <div class="pricing-card">
                     <div class="card-header">
-                        <div class="package-name">Luxury Inside Clean</div>
+                        <div class="package-name">Luxury Clean</div>
                         <div class="time">Duration: 3.5 hours</div>
                         <div class="pricing">
                             <div class="price-category">
@@ -418,17 +418,19 @@
                 </span>
                 <h2>Combine Your Services & Save</h2>
                 <p class="promo-text">Combine your Exterior + Interior Basic, Shine or Luxury service and get a <span class="highlight-text">15% discount</span> on your order</p>
-                <button class="cta-button">
-                    Contact For Quote
-                    <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" height="20">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path>
-                    </svg>
-                </button>
+                <a href="mailto:joshieb753@gmail.com">
+                    <button class="cta-button">
+                        Contact For Quote
+                        <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path>
+                        </svg>
+                    </button>
+                </a>
             </div>
         </section>
         
     </main>
-    <script>
+    <!-- <script>
        function toggleServices(serviceType, event) {
     // Get all service content divs and hide them
     document.querySelectorAll('.service-content').forEach(content => {
@@ -444,6 +446,7 @@
     });
     event.target.classList.add('active');
 }
-    </script>
+    </script> -->
+    <script defer src="./script.js"></script>
 </body>
 </html>
