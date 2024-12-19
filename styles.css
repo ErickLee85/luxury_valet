@@ -23,6 +23,199 @@
     --border-color: rgb(56, 56, 56);
 }
 
+:root {
+    --shiny-cta-bg: var(--color-primary);
+    --shiny-cta-bg-subtle: hsl(195, 100%, 30%);
+    --shiny-cta-fg: #ffffff;
+    --shiny-cta-highlight: hsl(219, 100%, 57%);
+    --shiny-cta-highlight-subtle: hsl(219, 100%, 57%);
+  }
+  
+  @property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  @property --gradient-angle-offset {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  @property --gradient-percent {
+    syntax: "<percentage>";
+    initial-value: 5%;
+    inherits: false;
+  }
+  
+  @property --gradient-shine {
+    syntax: "<color>";
+    initial-value: white;
+    inherits: false;
+  }
+  
+  .shiny-cta {
+    --animation: gradient-angle linear infinite;
+    --duration: 3s;
+    --shadow-size: 2px;
+    isolation: isolate;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline-offset: 4px;
+    padding: 1rem 2rem;
+    font-family: inherit;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid transparent;
+    margin-block: 25px;
+    color: var(--shiny-cta-fg);
+    background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg))
+        padding-box,
+      conic-gradient(
+          from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+          transparent,
+          var(--shiny-cta-highlight) var(--gradient-percent),
+          var(--gradient-shine) calc(var(--gradient-percent) * 2),
+          var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+          transparent calc(var(--gradient-percent) * 4)
+        )
+        border-box;
+    box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+  
+    &::before,
+    &::after,
+    span::before {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      inset-inline-start: 50%;
+      inset-block-start: 50%;
+      translate: -50% -50%;
+      z-index: -1;
+    }
+  
+    &:active {
+      translate: 0 1px;
+    }
+  }
+  
+  /* Dots pattern */
+  .shiny-cta::before {
+    --size: calc(100% - var(--shadow-size) * 3);
+    --position: 2px;
+    --space: calc(var(--position) * 2);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(
+        circle at var(--position) var(--position),
+        white calc(var(--position) / 4),
+        transparent 0
+      )
+      padding-box;
+    background-size: var(--space) var(--space);
+    background-repeat: space;
+    mask-image: conic-gradient(
+      from calc(var(--gradient-angle) + 45deg),
+      black,
+      transparent 10% 90%,
+      black
+    );
+    border-radius: inherit;
+    opacity: 0.4;
+    z-index: -1;
+  }
+  
+  /* Inner shimmer */
+  .shiny-cta::after {
+    --animation: shimmer linear infinite;
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(
+      -50deg,
+      transparent,
+      var(--shiny-cta-highlight),
+      transparent
+    );
+    mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+    opacity: 0.6;
+  }
+  
+  .shiny-cta span {
+    z-index: 1;
+  
+    &::before {
+      --size: calc(100% + 1rem);
+      width: var(--size);
+      height: var(--size);
+      box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+      opacity: 0;
+    }
+  }
+  
+  /* Animate */
+  .shiny-cta {
+    --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+    transition: var(--transition);
+    transition-property: --gradient-angle-offset, --gradient-percent,
+      --gradient-shine;
+  
+    &,
+    &::before,
+    &::after {
+      animation: var(--animation) var(--duration),
+        var(--animation) calc(var(--duration) / 0.4) reverse paused;
+      animation-composition: add;
+    }
+  
+    span::before {
+      transition: opacity var(--transition);
+      animation: calc(var(--duration) * 1.5) breathe linear infinite;
+    }
+  }
+  
+  .shiny-cta:is(:hover, :focus-visible) {
+    --gradient-percent: 20%;
+    --gradient-angle-offset: 95deg;
+    --gradient-shine: var(--shiny-cta-highlight-subtle);
+  
+    &,
+    &::before,
+    &::after {
+      animation-play-state: running;
+    }
+  
+    span::before {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes gradient-angle {
+    to {
+      --gradient-angle: 360deg;
+    }
+  }
+  
+  @keyframes shimmer {
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  @keyframes breathe {
+    from,
+    to {
+      scale: 1;
+    }
+    50% {
+      scale: 1.2;
+    }
+  }
+  
+
 body, html, * {
     margin: 0;
     padding: 0;
@@ -85,16 +278,32 @@ nav a:hover {
     color: var(--color-white);
     overflow: hidden;
     padding-inline: var(--spacing-standard);
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('images/ryking-uploads-g2Dtp8O2M9k-unsplash.jpg');
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,1)), url('images/frames-for-your-heart-V2BBsqfOp8c-unsplash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-bottom: 1px solid var(--color-primary);
-
 }
 
-#hero div {
-    max-width: 1200px;
+.custom-shape-divider-bottom-1734600686 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1734600686 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1734600686 .shape-fill {
+    fill: #000000;
 }
 
 #hero p {
@@ -155,7 +364,7 @@ button {
     align-items: center;
     gap: 10px;
     opacity: 1;
-    margin-bottom: 30px;
+    margin-block: 30px;
 }
 
 .cta-button:hover {
@@ -170,9 +379,9 @@ button {
 
 .availability {
     display: block;
-    color: var(--color-light-gray);
-    font-style: italic;
-    margin-block: 45px;
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* .cars {
@@ -261,12 +470,14 @@ button {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .card:hover img {
     transform: scale(1.3);
+    filter: grayscale(1);
 }
+
 
 .cars-intro {
     padding-bottom: 20px;
@@ -333,7 +544,7 @@ button {
 }
 
 .card-mobile:nth-child(3) {
-    background-image: url('./images/leon-kohle-aTBsSzMCJ0s-unsplash.jpg');
+    background-image: url('./images/devon-janse-van-rensburg-TRNhuudl9P8-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 450px;
@@ -343,11 +554,50 @@ button {
 
 .pricing-container {
     width: 100%;
-    min-height: 100vh;
-    padding-block: 50px;
+    min-height: 120vh;
     background:rgb(14, 14, 14);
-
+    position: relative;
+    padding-block: 50px;
 }
+
+/* .pricing-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: linear-gradient(#242424 2.5px, transparent 2.5px), linear-gradient(to right, #242424 2.5px, transparent 2.5px),
+    linear-gradient(to top, rgba(14,14,14,0.5), rgba(14,14,14,1));
+    background-size: 61px 61px;
+    background-color: rgba(23, 23, 23, 0);
+} */
+
+.service-content-exterior,
+.service-content-interior {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.service-content-exterior {
+    transform: translateX(-100%);
+}
+
+.service-content-interior {
+    transform: translateX(100%);
+}
+
+/* Active States */
+.service-content-exterior.active,
+.service-content-interior.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
 
 .pricing-container h2{
     text-align: center;
@@ -378,7 +628,7 @@ button {
 
 .pricing-icon {
     position: absolute;
-    height: 70px;
+    height: 40px;
     right: 30px;
     top: 30px;
 }
@@ -413,6 +663,12 @@ button {
     .pricing-card:nth-child(2) {
         transform: translateY(0px);
     }
+    .service-content-exterior, .service-content-interior {
+        position: relative;
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .card-header {
@@ -422,7 +678,7 @@ button {
 .package-name {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #60a5fa;
+    color: var(--color-primary);
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: -2px;
@@ -476,7 +732,7 @@ button {
 @media (max-width: 768px) {
     .pricing-container {
         grid-template-columns: 1fr;
-        padding: 1rem;
+        padding: 50px 1rem;
     }
 
     .pricing-card {
@@ -506,6 +762,7 @@ button {
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 .toggle-btn img {
@@ -626,11 +883,14 @@ button {
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
     min-height: 50vh;
+    position: relative;
 }
+
 
 .promo-content {
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
 }
 
 
@@ -643,7 +903,6 @@ button {
     background: var(--color-primary);
     color: var(--color-black);
     padding: 0.5rem 1.5rem;
-    border-radius: 30px;
     font-weight: 600;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -659,6 +918,7 @@ button {
     font-size: clamp(2rem, 5vw, 2.5rem);
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    text-align: center;
 }
 
 .promo-text {
