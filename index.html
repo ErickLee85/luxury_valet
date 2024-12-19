@@ -19,7 +19,28 @@
         <nav>
             <p class="comp-name">Luxury Valet</p>
             <ul>
-                <li></li>
+                <li>
+                    <svg data-slot="icon" height="25px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"></path>
+                      </svg>
+                      New Plymouth-Inglewood
+                </li>
+                <li>
+                      <a href="tel:02108875353">
+                        <svg data-slot="icon" height="25px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"></path>
+                          </svg>
+                        02108875353
+                    </a>
+                </li>
+                <li>
+                  <a href="mailto:joshieb753@gmail.com">
+                    <svg data-slot="icon" fill="none" stroke-width="1.5" height="25px" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path>
+                      </svg>
+                      Email
+                  </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -28,11 +49,16 @@
     <main>
         <!-- Hero/Featured section -->
         <section id="hero">
-          <div style=" max-width: 1200px;">
+            <div class="hero-slides">
+                <div class="hero-slide"></div>
+                <div class="hero-slide"></div>
+                <div class="hero-slide"></div>
+            </div>
+          <div style=" max-width: 1200px; z-index: 1; position: relative;">
             <p><span class="highlight">Elevate</span> Your<br>Ride</p>
             <h1 class="subtext">Premium mobile car detailing in New Plymouth-Inglewood. From basic washes to luxury details, we bring professional valeting services directly to your location.
             </h1>
-            <a href="#price-toggle">
+            <a href="#exterior-prices">
                 <button class="shiny-cta">
                    <span>
                     View Services
@@ -57,13 +83,16 @@
                     <a href="tel:02108875353">
                     <button class="cta-button" style="margin-top: 30px;">
                         Book now
+                        <svg data-slot="icon" fill="none" class="hero-icon" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z"></path>
+                          </svg>
                     </button>
                 </a>
                 </p>
             </div>
             <div class="car-show">
                 <div class="card">
-                    <img src="./images/dushawn-jovic-DepcNLe7zNs-unsplash.jpg" alt="ferrari">
+                    <img src="./images/dushawn-jovic-DepcNLe7zNs-unsplash.jpg" alt="Porsche">
                 </div>
                 <div class="card">
                     <img src="./images/ranamotorworks-Vek_2GQ2sGw-unsplash.jpg" alt="lmaborghini ">
@@ -80,9 +109,12 @@
                 <p class="subtext">From exotic cars to daily drivers...
                     I aim for high quality service, have an eye for detail and prioritize customer satisfaction. 
                     Service is delivered to your door.
-                    <a href="#price-toggle">
+                    <a href="tel:02108875353">
                         <button class="pricing-btn">
                             BOOK NOW
+                            <svg data-slot="icon" fill="none" class="hero-icon" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z"></path>
+                              </svg>
                         </button>
                     </a>
                 </p>
@@ -432,6 +464,148 @@
                         </svg>
                     </button>
                 </a>
+            </div>
+        </section>
+
+        <section class="modern-faq">
+            <h2><span class="highlight"><strong>Common</strong></span> Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <div class="faq-front">
+                            <svg data-slot="icon" class="faq-icon" aria-hidden="true" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                            <h3>Service Duration</h3>
+                            <p class="preview-text">How long will my service take?</p>
+                        </div>
+                        <div class="faq-back">
+                            <p>Service duration varies by package and vehicle size:</p>
+                            <ul>
+                                <li>Basic: 1.5 hours</li>
+                                <li>Shine: 2.5 hours</li>
+                                <li>Luxury: 3.5-4 hours</li>
+                            </ul>
+                            <p>We ensure thorough attention to detail for every service level.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <div class="faq-front">
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <h3>Service Location</h3>
+                            <p class="preview-text">Where do you provide service?</p>
+                        </div>
+                        <div class="faq-back">
+                            <p>We offer premium mobile detailing throughout New Plymouth-Inglewood. We bring all necessary equipment and supplies to your location.</p>
+                            <p>Requirements:</p>
+                            <ul>
+                                <li>Access to water</li>
+                                <li>Access to electricity</li>
+                                <li>Suitable parking space</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <div class="faq-front">
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M12 12h.01"/>
+                                <path d="M7 12h.01"/>
+                                <path d="M17 12h.01"/>
+                            </svg>
+                            <h3>Payment Methods</h3>
+                            <p class="preview-text">What payments do you accept?</p>
+                        </div>
+                        <div class="faq-back">
+                            <p>We accept all major payment methods:</p>
+                            <ul>
+                                <li>Cash</li>
+                                <li>Credit/Debit Cards</li>
+                                <li>Bank Transfer</li>
+                            </ul>
+                            <p>Payment is due upon service completion.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <div class="faq-front">
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <path d="M22 6l-10 7L2 6"/>
+                            </svg>
+                            <h3>Booking Process</h3>
+                            <p class="preview-text">How do I book a service?</p>
+                        </div>
+                        <div class="faq-back">
+                            <p>Booking is simple:</p>
+                            <ul>
+                                <li>Call or email us</li>
+                                <li>Specify your vehicle size and desired service</li>
+                                <li>Choose a convenient date and time</li>
+                                <li>We'll confirm your booking</li>
+                            </ul>
+                            <p>We aim to accommodate your schedule whenever possible.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <div class="faq-front">
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <path d="M3.29 7L12 12l8.71-5"/>
+                                <path d="M12 22V12"/>
+                            </svg>
+                            <h3>Ceramic Treatment</h3>
+                            <p class="preview-text">What's included in ceramic coating?</p>
+                        </div>
+                        <div class="faq-back">
+                            <p>Our ceramic spray treatment provides:</p>
+                            <ul>
+                                <li>3-6 months protection</li>
+                                <li>Enhanced gloss finish</li>
+                                <li>Hydrophobic properties</li>
+                                <li>Easier cleaning maintenance</li>
+                            </ul>
+                            <p>Perfect for maintaining your vehicle's premium appearance.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="faq-card">
+                    <div class="faq-content">
+                        <div class="faq-front">
+                            <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                                <path d="M4 22v-7"/>
+                            </svg>
+                            <h3>Preparation</h3>
+                            <p class="preview-text">How should I prepare my vehicle?</p>
+                        </div>
+                        <div class="faq-back">
+                            <p>Simple preparation steps:</p>
+                            <ul>
+                                <li>Remove personal belongings</li>
+                                <li>Clear large items from interior</li>
+                                <li>Ensure access to water/power</li>
+                                <li>Secure any loose items</li>
+                            </ul>
+                            <p>We'll handle everything else!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         

@@ -137,20 +137,34 @@ document.addEventListener('DOMContentLoaded', function() {
         //     ease: "power4.out"
         // });
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: {
-                            y: target,
-                            offsetY: 70
-                        },
-                        ease: "power4.inOut"
-                    });
+        const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    
+    function nextSlide() {
+        slides[currentSlide].style.opacity = '0';
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.opacity = '1';
+    }
+    
+    // Change slide every 5 seconds
+    setInterval(nextSlide, 5000);
+
+        const faqItems = document.querySelectorAll('.faq-item');
+    
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
                 }
             });
         });
