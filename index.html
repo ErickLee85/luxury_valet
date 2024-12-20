@@ -1,14 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Add your site description here">
-    <meta name="keywords" content="add, your, keywords, here">
-    <meta name="author" content="Your Name">
-    <title>Luxury Valet | Mobile Detailing in New Plymouth-Inglewood</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Luxury Valet | Professional Mobile Car Detailing in New Plymouth-Inglewood</title>
+    <meta name="title" content="Luxury Valet | Professional Mobile Car Detailing in New Plymouth-Inglewood">
+    <meta name="description" content="Premium mobile car detailing service in New Plymouth-Inglewood. Professional valeting, ceramic coating, interior cleaning & exterior detailing. Book your mobile car wash today!">
+    <meta name="keywords" content="car detailing, mobile car wash, car valeting, New Plymouth, Inglewood, ceramic coating, interior cleaning, exterior detailing, professional car wash, luxury car care">
+    <meta name="author" content="Luxury Valet">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.luxuryvaletnz.com">
+    <meta property="og:title" content="Luxury Valet | Professional Mobile Car Detailing in New Plymouth-Inglewood">
+    <meta property="og:description" content="Premium mobile car detailing service in New Plymouth-Inglewood. Professional valeting, ceramic coating, interior cleaning & exterior detailing.">
+    <meta property="og:image" content="https://www.luxuryvaletnz.com/images/devon-janse-van-rensburg-TRNhuudl9P8-unsplash.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://luxuryvaletnz.com/">
+    <meta property="twitter:title" content="Luxury Valet | Professional Mobile Car Detailing">
+    <meta property="twitter:description" content="Premium mobile car detailing service in New Plymouth-Inglewood. Professional valeting & car care services at your location.">
+    <meta property="twitter:image" content="https://www.luxuryvaletnz.com/images/devon-janse-van-rensburg-TRNhuudl9P8-unsplash.jpg">
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.manifest"> -->
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.luxuryvaletnz.com/">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="styles.css" as="style">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoDetailing",
+      "name": "Luxury Valet",
+      "image": "https://www.luxuryvaletnz.com/images/devon-janse-van-rensburg-TRNhuudl9P8-unsplash.jpg",
+      "description": "Premium mobile car detailing service in New Plymouth-Inglewood",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "New Plymouth-Inglewood",
+        "addressCountry": "NZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.9006",
+        "longitude": "174.8860"
+      },
+      "url": "https://luxuryvaletnz.com",
+      "telephone": "02108875353",
+      "priceRange": "£70-£300",
+      "openingHours": "Mo-Fr",
+      "areaServed": ["New Plymouth", "Inglewood"],
+      "service": [
+        {
+          "@type": "Service",
+          "name": "Exterior Detailing",
+          "description": "Complete exterior car cleaning and protection services"
+        },
+        {
+          "@type": "Service",
+          "name": "Interior Cleaning",
+          "description": "Comprehensive interior cleaning and restoration services"
+        },
+        {
+          "@type": "Service",
+          "name": "Ceramic Coating",
+          "description": "Professional ceramic coating application for long-lasting protection"
+        }
+      ]
+    }
+    </script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
 
@@ -89,13 +162,13 @@
             </div>
             <div class="car-show">
                 <div class="card">
-                    <img src="./images/dushawn-jovic-DepcNLe7zNs-unsplash.jpg" alt="Porsche">
+                    <img lazy src="./images/dushawn-jovic-DepcNLe7zNs-unsplash.jpg" alt="Porsche">
                 </div>
                 <div class="card">
-                    <img src="./images/ranamotorworks-Vek_2GQ2sGw-unsplash.jpg" alt="lmaborghini ">
+                    <img lazy src="./images/ranamotorworks-Vek_2GQ2sGw-unsplash.jpg" alt="lmaborghini ">
                 </div>
                 <div class="card">
-                    <img src="./images/devon-janse-van-rensburg-TRNhuudl9P8-unsplash.jpg" alt="green bmw">
+                    <img lazy src="./images/devon-janse-van-rensburg-TRNhuudl9P8-unsplash.jpg" alt="green bmw">
                 </div>
             </div>
         </section>
@@ -448,27 +521,6 @@
                 </div>
             </div>
         </section>
-        <!-- <section class="promo-section">
-            <div class="promo-content">
-                <span class="promo-tag">
-                    Special Offer
-                    <svg data-slot="icon" height="25px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"></path>
-                      </svg>
-                </span>
-                <h2>Combine Your Services & Save</h2>
-                <p class="promo-text">Combine your Exterior + Interior Basic, Shine or Luxury service and get a <span class="highlight-text">15% discount</span> on your order</p>
-                <a href="mailto:joshieb753@gmail.com">
-                    <button class="cta-button">
-                        Contact For Quote
-                        <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" height="20">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path>
-                        </svg>
-                    </button>
-                </a>
-            </div>
-        </section> -->
-
         <section class="modern-faq-container">
             <div class="modern-faq">
                 <h2><span class="highlight"><strong>Common</strong></span> Questions</h2>
@@ -614,7 +666,7 @@
             <div class="container">
                 <div class="contact-wrapper">
                     <div class="contact-info">
-                        <img src="./images/pexels-trvlust-3221145.jpg" alt="lambo">
+                        <img lazy src="./images/pexels-trvlust-3221145.jpg" alt="lambo">
                     </div>
                     <div class="contact-form">
                         <h3>Contact Us</h3>
@@ -658,15 +710,23 @@
 
     </main>
     <footer>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill: white; height: 30px;">
-            <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="fill: white; height: 30px;">
-            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="fill: white; height: 30px;">
-            <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/>
-        </svg>
+        <div style="display: flex; align-items: center; gap: 40px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="fill: white; height: 30px;">
+                <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="fill: white; height: 30px;">
+                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="fill: white; height: 30px;">
+                <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/>
+            </svg>
+        </div>
+        <a href="https://www.desotobitsandbytes.com" style="color:var(--color-primary); display: flex; gap: 10px; align-items: center;">
+            <svg data-slot="icon" style="height:25px;" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"></path>
+              </svg>
+            Powered By Desoto Bits & Bytes
+        </a>
     </footer>
     <script defer src="./script.js"></script>
 </body>

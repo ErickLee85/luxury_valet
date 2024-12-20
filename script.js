@@ -1,5 +1,198 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Import GSAP from CDN first
+const script = document.createElement('script');
+script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+document.head.appendChild(script);
+
+// Import ScrollTrigger
+const scrollTriggerScript = document.createElement('script');
+scrollTriggerScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js';
+document.head.appendChild(scrollTriggerScript);
+
+// Wait for GSAP and ScrollTrigger to load
+scrollTriggerScript.onload = () => {
+    gsap.registerPlugin(ScrollTrigger);
+    initAnimations();
+};
+
+function initAnimations() {
+    // Hero section animations
+    const heroTimeline = gsap.timeline({
+        defaults: { duration: 1, ease: "power2.out" }
+    });
+
+    heroTimeline
+        .from(".hero-slides", { opacity: 0, scale: 1.1, duration: 1.5 })
+        .from(".highlight", { y: 30, opacity: 0, duration: 0.7 }, "-=1")
+        .from("h1.subtext", { y: 20, opacity: 0, duration: 0.7 }, "-=0.5")
+        .from(".shiny-cta", { y: 20, opacity: 0, duration: 0.7 }, "-=0.3")
+        .from(".availability", { y: 20, opacity: 0, duration: 0.7 }, "-=0.3");
+
+    // Cars section animations
+    gsap.from(".cars-intro h2", {
+        scrollTrigger: {
+            trigger: ".cars-intro",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1
+    });
+
+    gsap.from(".cars-intro .subtext", {
+        scrollTrigger: {
+            trigger: ".cars-intro",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3
+    });
+
+    // Card animations
+    gsap.utils.toArray(".card").forEach((card, i) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: i * 0.2
+        });
+    });
+
+    // Pricing section animations (only for list items)
+    document.querySelectorAll('.pricing-card .features li').forEach((li, i) => {
+        gsap.from(li, {
+            scrollTrigger: {
+                trigger: li,
+                start: "top 100%",
+                toggleActions: "play none none reverse"
+            },
+            x: -20,
+            opacity: 0,
+            duration: 0.5,
+            delay: i * 0.1
+        });
+    });
+
+    gsap.utils.toArray(".service-item").forEach((item, i) => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            },
+            opacity: 0,
+            x: -30,
+            duration: 0.5,
+            delay: i * 0.1,
+            ease: "power2.out"
+        });
+
+        // Add hover animation for service items
+        item.addEventListener("mouseenter", () => {
+            gsap.to(item, {
+                scale: 1.02,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+            // Animate the price line on hover
+            gsap.to(item.querySelector('.service-price-line'), {
+                scaleX: 1.1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+
+        item.addEventListener("mouseleave", () => {
+            gsap.to(item, {
+                scale: 1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+            // Reset the price line animation
+            gsap.to(item.querySelector('.service-price-line'), {
+                scaleX: 1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+
+
+    // FAQ cards animation
+    gsap.utils.toArray(".faq-card").forEach((card, i) => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: i * 0.15
+        });
+    });
+
+    // Contact section animations
+    const contactTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".contact-section",
+            start: "top 70%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    contactTimeline
+        .from(".contact-info", { x: -50, opacity: 0, duration: 1 })
+        .from(".contact-form", { x: 50, opacity: 0, duration: 1 }, "-=0.8")
+        .from(".form-group", { 
+            y: 20, 
+            opacity: 0, 
+            duration: 0.5,
+            stagger: 0.1 
+        }, "-=0.5");
+
+    // Smooth scroll for navigatio
+
+    // Mobile-specific animations
+    if (window.innerWidth <= 768) {
+        // Adjust animations for mobile
+        gsap.utils.toArray(".card-mobile").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.15
+            });
+        });
+    }
+}
+
+// Handle window resize
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        // Refresh ScrollTrigger on resize
+        ScrollTrigger.refresh();
+    }, 250);
+});
+
     var form = document.getElementById("contactForm");
     var status = document.getElementById("my-form-status");
 
