@@ -961,8 +961,8 @@ button {
     padding: 4rem 2rem;
     text-align: center;
     position: relative;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
     min-height: 50vh;
     position: relative;
 }
