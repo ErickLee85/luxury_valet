@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (response.ok) {
                 form.reset();
                 status.innerHTML = "Thanks! Your message has been sent.";
-                status.style.color = "green";
+                status.style.color = "lime";
             } else {
                 const data = await response.json();
                 if (Object.hasOwn(data, 'errors')) {
