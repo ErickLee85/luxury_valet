@@ -617,7 +617,8 @@ button {
     background:rgb(14, 14, 14);
     position: relative;
     padding-block: 50px;
-    overflow: hidden;
+    overflow:hidden;
+    height: auto;
 }
 
 .service-content-exterior,
@@ -1069,7 +1070,7 @@ button {
 }
 
 .modern-faq {
-    padding: 4rem 2rem;
+    padding: 4rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
     background: transparent;
@@ -1226,7 +1227,6 @@ button {
     transition: transform 300ms ease-in-out;
 }
 
-
 .contact-info h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
@@ -1282,6 +1282,16 @@ button {
 
 .form-group {
     margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.input-icon {
+    height: 30px;
+    color: rgb(221, 221, 221);
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transition: all 0.3s ease;
 }
 
 .form-group label {
@@ -1295,7 +1305,7 @@ button {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 3rem;
     border: 3px solid #e5e7eb;
     font-size: 1rem;
     transition: all 0.3s ease;
