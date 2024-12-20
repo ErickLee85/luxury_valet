@@ -3,140 +3,94 @@ document.addEventListener('DOMContentLoaded', function() {
         const exteriorContent = document.querySelector('.service-content-exterior');
         exteriorContent.classList.add('active');
      
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
 
-        // Hero section animations
-        // gsap.from("#hero p", {
-        //     y: 100,
-        //     opacity: 0,
-        //     duration: 1,
-        //     ease: "power4.out"
-        // });
+        // Regex patterns
+                        const patterns = {
+            email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+            phone: /^(?:\+?64|0)(?:2\d|3\d|4\d|6\d|7\d|8\d|9\d)(?:\d{3}){2}$/
+        };
 
-        // gsap.from("#hero .subtext", {
-        //     y: 50,
-        //     opacity: 0,
-        //     duration: 1,
-        //     delay: 0.3,
-        //     ease: "power4.out"
-        // });
+        // Show error message
+        function showError(field, message) {
+            const errorElement = document.getElementById(`${field}Error`);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            document.getElementById(field).classList.add('error');
+        }
 
-        // gsap.from("#hero .cta-button", {
-        //     y: 30,
-        //     duration: 1,
-        //     delay: 0.6,
-        //     ease: "power4.out"
-        // });
-    
+        // Hide error message
+        function hideError(field) {
+            const errorElement = document.getElementById(`${field}Error`);
+            errorElement.style.display = 'none';
+            document.getElementById(field).classList.remove('error');
+        }
 
-        // // Cars section animations
-        // gsap.from(".cars-intro h2", {
-        //     scrollTrigger: {
-        //         trigger: ".cars-intro",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     y: 100,
-        //     opacity: 0,
-        //     duration: 1,
-        //     ease: "power4.out"
-        // });
+        // Validate form
+        function validateForm(e) {
+            e.preventDefault();
+            let isValid = true;
 
-        // gsap.from(".cars-intro .subtext", {
-        //     scrollTrigger: {
-        //         trigger: ".cars-intro",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     y: 50,
-        //     opacity: 0,
-        //     duration: 1,
-        //     delay: 0.3,
-        //     ease: "power4.out"
-        // });
+            // Name validation
+            const name = document.getElementById('name').value.trim();
+            if (name === '') {
+                showError('name', 'Please enter your name');
+                isValid = false;
+            } else {
+                hideError('name');
+            }
 
-        // // Card animations
-        // gsap.from(".card", {
-        //     scrollTrigger: {
-        //         trigger: ".car-show",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     x: 100,
-        //     opacity: 0,
-        //     duration: 1,
-        //     stagger: 0.2,
-        //     ease: "power4.out"
-        // });
+            // Email validation
+            const email = document.getElementById('email').value.trim();
+            if (!patterns.email.test(email)) {
+                showError('email', 'Please enter a valid email address');
+                isValid = false;
+            } else {
+                hideError('email');
+            }
 
-        // // Pricing cards animations
-        // // gsap.from(".pricing-card", {
-        // //     scrollTrigger: {
-        // //         trigger: ".holder",
-        // //         start: "top 80%",
-        // //         toggleActions: "play none none reverse"
-        // //     },
-        // //     x: 100,
-        // //     opacity: 0,
-        // //     duration: 0.8,
-        // //     stagger: 0.2,
-        // //     ease: "power4.out"
-        // // });
+            // Phone validation
+            const phone = document.getElementById('phone').value.trim();
+            if (!patterns.phone.test(phone)) {
 
-        // // Extra services animations
-        // gsap.from(".service-category", {
-        //     scrollTrigger: {
-        //         trigger: ".extra-services-section",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     y: 50,
-        //     opacity: 0,
-        //     duration: 0.8,
-        //     stagger: 0.2,
-        //     ease: "power4.out"
-        // });
+                isValid = false;
+            } else {
+                hideError('phone');
+            }
 
-        // // Service items stagger animation
-        // gsap.from(".service-item", {
-        //     scrollTrigger: {
-        //         trigger: ".services-grid",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     x: -50,
-        //     opacity: 0,
-        //     duration: 0.5,
-        //     stagger: 0.05,
-        //     ease: "power2.out"
-        // });
+            // Message validation
+            const message = document.getElementById('message').value.trim();
+            if (message === '') {
+                showError('message', 'Please enter your message');
+                isValid = false;
+            } else {
+                hideError('message');
+            }
 
-        // // Promo section animations
-        // gsap.from(".promo-tag", {
-        //     scrollTrigger: {
-        //         trigger: ".promo-section",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     scale: 0.5,
-        //     opacity: 0,
-        //     duration: 0.8,
-        //     ease: "back.out(1.7)"
-        // });
+            // If form is valid, show success message
+            if (isValid) {
+                form.reset();
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        }
 
-        // gsap.from(".promo-section h2, .promo-text", {
-        //     scrollTrigger: {
-        //         trigger: ".promo-section",
-        //         start: "top 80%",
-        //         toggleActions: "play none none reverse"
-        //     },
-        //     y: 50,
-        //     opacity: 0,
-        //     duration: 0.8,
-        //     stagger: 0.2,
-        //     ease: "power4.out"
-        // });
+        // Add form submit event listener
+        form.addEventListener('submit', validateForm);
 
+        // Real-time validation
+        const inputs = form.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.trim() !== '') {
+                    hideError(this.id);
+                }
+            });
+        });
+        
         const slides = document.querySelectorAll('.hero-slide');
     let currentSlide = 0;
     
