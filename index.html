@@ -615,9 +615,14 @@
                         <img src="./images/pexels-trvlust-3221145.jpg" alt="lambo">
                     </div>
                     <div class="contact-form">
-                        <h3>Schedule Your Detail</h3>
-                        <p class="booking-intro">Let us know your vehicle details and preferred service.</p>
-                        <form id="contactForm" novalidate>
+                        <h3>Contact Us</h3>
+                        <p class="booking-intro">Let us know your vehicle details and preferred service. We are ready to take care of you Monday thru Friday.</p>
+                        <form 
+                        id="contactForm"
+                        action="https://formspree.io/f/mdkoqpva"
+                        method="POST"
+                        >
+                        <div id="my-form-status"></div>
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" required>
@@ -630,7 +635,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" id="phone" name="phone">
                                 <div class="error-message" id="phoneError">Please enter a valid phone number</div>
                             </div>
                             <div class="form-group">
@@ -640,11 +645,8 @@
                             </div>
                             <button type="submit" class="submit-btn">
                               Send Message
-                          <div class="spinner"></div>
+                              <span class="loader"></span>
                           </button>
-                            <div class="success-message" id="successMessage">
-                                Thank you! Your message has been sent successfully.
-                            </div>
                         </form>
                     </div>
                 </div>

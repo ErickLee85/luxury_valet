@@ -365,8 +365,6 @@ nav ul li {
     margin-bottom: var(--spacing-standard);
     text-transform: uppercase;
     font-weight: 900;
-    text-shadow: 2px 4px 2px rgba(0,0,0,0.9);
-
 }
 
 /* #hero::before {
@@ -1373,4 +1371,32 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 50px;
+}
+
+.loader {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    border: 2px solid;
+    border-color: #ffffff #0000 #fff #0000;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: 1s rotate linear infinite;
+    display: none;
+}
+.loader:before, .loader:after {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 5px solid transparent;
+    border-bottom-color: #fff;
+    transform: translate(-5px, 9.5px) rotate(-35deg);
+}
+.loader:after {
+    border-color: #ffffff #0000 #ffffff00 #0000;
+    transform: translate(16px, 1.5px) rotate(-35deg);
+}
+@keyframes rotate {
+    100% { transform: rotate(360deg) }
 }

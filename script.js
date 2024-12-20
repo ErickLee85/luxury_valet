@@ -1,98 +1,67 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    var form = document.getElementById("contactForm");
+    var status = document.getElementById("my-form-status");
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        let isValid = true;
+        const submitButton = form.querySelector('.submit-btn');
+        const loader = submitButton.querySelector('.loader');
+        
+        // Start loading state
+        submitButton.disabled = true;
+        loader.style.display = 'inline-block';
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                form.reset();
+                status.innerHTML = "Thanks! Your message has been sent.";
+                status.style.color = "green";
+            } else {
+                const data = await response.json();
+                if (Object.hasOwn(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                    status.innerHTML = "Oops! There was a problem submitting your form";
+                }
+                status.style.color = "red";
+            }
+        } catch (error) {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+            status.style.color = "red";
+            console.log(error.message)
+        } finally {
+            submitButton.disabled = false;
+            loader.style.display = 'none';
+        }
+
+    }
+
+    if (form) {
+        form.addEventListener("submit", handleSubmit);
+    }
+
+
+
+
     window.addEventListener('load', function() {
         const exteriorContent = document.querySelector('.service-content-exterior');
         exteriorContent.classList.add('active');
      
-        const form = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
 
-        // Regex patterns
-                        const patterns = {
-            email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
-            phone: /^(?:\+?64|0)(?:2\d|3\d|4\d|6\d|7\d|8\d|9\d)(?:\d{3}){2}$/
-        };
-
-        // Show error message
-        function showError(field, message) {
-            const errorElement = document.getElementById(`${field}Error`);
-            errorElement.textContent = message;
-            errorElement.style.display = 'block';
-            document.getElementById(field).classList.add('error');
-        }
-
-        // Hide error message
-        function hideError(field) {
-            const errorElement = document.getElementById(`${field}Error`);
-            errorElement.style.display = 'none';
-            document.getElementById(field).classList.remove('error');
-        }
-
-        // Validate form
-        function validateForm(e) {
-            e.preventDefault();
-            let isValid = true;
-
-            // Name validation
-            const name = document.getElementById('name').value.trim();
-            if (name === '') {
-                showError('name', 'Please enter your name');
-                isValid = false;
-            } else {
-                hideError('name');
-            }
-
-            // Email validation
-            const email = document.getElementById('email').value.trim();
-            if (!patterns.email.test(email)) {
-                showError('email', 'Please enter a valid email address');
-                isValid = false;
-            } else {
-                hideError('email');
-            }
-
-            // Phone validation
-            const phone = document.getElementById('phone').value.trim();
-            if (!patterns.phone.test(phone)) {
-
-                isValid = false;
-            } else {
-                hideError('phone');
-            }
-
-            // Message validation
-            const message = document.getElementById('message').value.trim();
-            if (message === '') {
-                showError('message', 'Please enter your message');
-                isValid = false;
-            } else {
-                hideError('message');
-            }
-
-            // If form is valid, show success message
-            if (isValid) {
-                form.reset();
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            }
-        }
-
-        // Add form submit event listener
-        form.addEventListener('submit', validateForm);
-
-        // Real-time validation
-        const inputs = form.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                if (this.value.trim() !== '') {
-                    hideError(this.id);
-                }
-            });
-        });
+        
         
         const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
+        let currentSlide = 0;
     
     function nextSlide() {
         slides[currentSlide].style.opacity = '0';
