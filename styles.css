@@ -8,6 +8,7 @@
     
     /* Transparency */
     --nav-bg-opacity: rgba(255, 255, 255, 0.05);
+    --nav-bg-opacity-two: rgba(255, 255, 255, 0.025);
     --hero-overlay-opacity: 0.4;
     
     /* Spacing */
@@ -16,7 +17,7 @@
     --nav-padding: 20px 25px;
     
     /* Other */
-    --blur-amount: 8px;
+    --blur-amount: 12px;
     --letter-spacing-wide: 7px;
     --transition-standard: all 0.5s;
 
@@ -542,9 +543,9 @@ button {
     padding-bottom: 20px;
 }
 
-.cars-intro h2, .cars-intro-mobile h2, .pricing-container h2, .extra-services-section h2, .modern-faq h2 {
+.cars-intro h2, .cars-intro-mobile h2, .pricing-container h2, .extra-services-section h2, .modern-faq h2, .promo-content h2, .special-text {
     color: var(--color-white);
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-size: clamp(2.5rem, 10vw, 5rem) !important;
     line-height: 1.2;
     text-transform: uppercase;
     margin-bottom: var(--spacing-standard);
@@ -960,8 +961,6 @@ button {
     padding: 4rem 2rem;
     text-align: center;
     position: relative;
-    border-top: 1px solid var(--color-primary);
-    border-bottom: 1px solid var(--color-primary);
     min-height: 50vh;
     position: relative;
 }
@@ -996,6 +995,7 @@ button {
 .promo-section h2 {
     color: var(--color-white);
     font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 700 !important;
     margin-bottom: 1.5rem;
     line-height: 1.2;
     text-align: center;
@@ -1233,7 +1233,7 @@ button {
     font-weight: 700;
 }
 
-.contact-info p {
+.contact-info p, #luxury-special p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
@@ -1428,3 +1428,10 @@ footer {
 @keyframes rotate {
     100% { transform: rotate(360deg) }
 }
+
+#luxury-special {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.3)), url('./images/ryking-uploads-g2Dtp8O2M9k-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+

@@ -22,6 +22,20 @@ document.addEventListener('DOMContentLoaded', function() {
             defaults: { duration: 1, ease: "power2.out" }
         });
 
+        const promoTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".promo-section",
+                start: "top 70%",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        promoTimeline
+            .from(".promo-tag", { y: 30, opacity: 0, duration: 0.7 })
+            .from(".promo-section h2", { y: 30, opacity: 0, duration: 0.7 }, "-=0.5")
+            .from(".promo-section .service-items", { y: 30, opacity: 0, duration: 0.7 }, "-=0.3")
+            .from(".promo-section .shiny-cta", { y: 30, opacity: 0, duration: 0.7 }, "-=0.3");
+
         heroTimeline
             .from(".hero-slides", { opacity: 0, scale: 1.3, duration: 1.5 })
             .from(".highlight", { y: 30, opacity: 0, duration: 0.7 }, "-=1")
