@@ -926,6 +926,7 @@ button {
 .service-name {
     color: var(--color-light-gray);
     font-size: 1rem;
+    min-width: 0;
 }
 
 .service-price-line {
@@ -1435,3 +1436,6 @@ footer {
     background-repeat: no-repeat;
 }
 
+@media(max-width:445px) {
+    .service-name{font-size:0.8rem;}
+}
