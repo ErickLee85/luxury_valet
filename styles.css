@@ -623,31 +623,31 @@ button {
     height: auto;
 }
 
-.service-content-exterior,
+/* .service-content-exterior,
 .service-content-interior {
     position: absolute;
     width: 100%;
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease-in-out;
-}
+} */
 
 
-.service-content-exterior {
+/* .service-content-exterior {
     transform: translateX(-100%);
 }
 
 .service-content-interior {
     transform: translateX(100%);
-}
+} */
 
 /* Active States */
-.service-content-exterior.active,
+/* .service-content-exterior.active,
 .service-content-interior.active {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
-}
+} */
 
 
 .pricing-container h2{
@@ -708,8 +708,9 @@ button {
 
 
 .pricing-card:nth-child(2) {
-    border: 1px solid var(--color-primary);
+    border: 3px solid var(--color-primary);
     transform: translateY(-25px);
+    box-shadow: 0 0 15px var(--color-primary);
 }
 
 @media(max-width:980px) {
