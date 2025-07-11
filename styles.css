@@ -322,18 +322,18 @@ nav ul li {
 }
 
 .hero-slide:nth-child(1) {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)),
+    background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,1)),
                       url('./images/frames-for-your-heart-V2BBsqfOp8c-unsplash.webp');
     opacity: 1;
 }
 
 .hero-slide:nth-child(3) {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)),
+    background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,1)),
                       url('./images/pexels-izaz-ali-1663956410-29352557.jpg');
 }
 
 .hero-slide:nth-child(2) {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)),
+    background-image: linear-gradient(to left, rgba(0,0,0,0.6), rgba(0,0,0,1)),
                       url('./images/2149193565-ezgif.com-optiwebp.webp');
 }
 
@@ -391,6 +391,24 @@ nav ul li {
 
 #hero h1 {
     max-width: 600px;
+}
+
+.frosted-glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.frosted-glass-container:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .comp-name {
