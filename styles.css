@@ -222,6 +222,23 @@
   }
   
 
+/* Responsive Lottie Animation */
+.responsive-lottie {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        max-width:800px;
+}
+
+@media(max-width:524px) {
+    .responsive-lottie {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+    }
+}
+
+
 body, html, * {
     margin: 0;
     padding: 0;
@@ -263,10 +280,13 @@ nav a {
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: 200ms ease-in-out;
 }
 
 nav a:hover {
     cursor: pointer;
+    color: var(--color-primary);
+    transform: translateY(-2px);
 }
 
 nav ul li {
@@ -1646,4 +1666,5 @@ footer {
     .modal-content {
       width: 95%;
     }
+    
   }
