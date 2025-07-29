@@ -849,7 +849,7 @@
           }
         });
 
-        // FAQ Mobile Modal Functionality
+        // FAQ Modal Functionality (Mobile & Desktop)
         function isMobile() {
             return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
@@ -866,21 +866,23 @@
             document.body.style.overflow = '';
         }
 
-        // Initialize FAQ mobile behavior
+        // Initialize FAQ behavior for all devices
         document.addEventListener('DOMContentLoaded', function() {
-            if (isMobile()) {
-                // Remove 3D rotation effect on mobile
-                document.querySelectorAll('.faq-card').forEach(function(card) {
-                    card.classList.add('no-rotate');
-                    card.addEventListener('click', function() {
-                        const front = card.querySelector('.faq-front');
-                        const back = card.querySelector('.faq-back');
-                        const title = front.querySelector('h3').textContent;
-                        const content = back.innerHTML;
-                        openFaqModal(title, content);
-                    });
+            document.querySelectorAll('.faq-card').forEach(function(card) {
+                // Add click handler for all FAQ cards
+                card.addEventListener('click', function() {
+                    const front = card.querySelector('.faq-front');
+                    const back = card.querySelector('.faq-back');
+                    const title = front.querySelector('h3').textContent;
+                    const content = back.innerHTML;
+                    openFaqModal(title, content);
                 });
-            }
+
+                // On mobile, disable 3D rotation and add visual indicators
+                if (isMobile()) {
+                    card.classList.add('no-rotate');
+                }
+            });
         });
 
         // Close modal when clicking outside content
@@ -992,18 +994,38 @@
             color: hsl(195, 100%, 50%);
         }
 
+        /* FAQ Card Clickable Styles for All Devices */
+        .faq-card {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .faq-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px hsla(195, 100%, 50%, 0.2);
+        }
+
+        /* Desktop: Add click indicator */
+        @media (min-width: 769px) {
+            .faq-card .faq-front::after {
+                content: "Click to view details";
+                position: absolute;
+                bottom: 12px;
+                right: 12px;
+                font-size: 0.75rem;
+                color: hsla(195, 100%, 50%, 0.6);
+                font-style: italic;
+                opacity: 0;
+                transition: opacity 0.2s ease;
+            }
+
+            .faq-card:hover .faq-front::after {
+                opacity: 1;
+            }
+        }
+
         /* Mobile-specific styles for FAQ cards */
         @media (max-width: 768px) {
-            .faq-card.no-rotate {
-                cursor: pointer;
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-
-            .faq-card.no-rotate:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 25px hsla(195, 100%, 50%, 0.3);
-            }
-
             .faq-card.no-rotate .faq-content {
                 transform: none !important;
             }

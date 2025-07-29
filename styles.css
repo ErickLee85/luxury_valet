@@ -1127,7 +1127,7 @@ button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 1rem;
+    padding: 0rem;
 }
 
 .faq-card {
@@ -1144,8 +1144,13 @@ button {
     cursor: pointer;
 }
 
-.faq-card:hover .faq-content {
+/* Disable 3D flip on hover since we're using modal for all devices */
+/* .faq-card:hover .faq-content {
     transform: rotateY(180deg);
+} */
+
+.faq-card:hover {
+    transform: translateY(-2px);
 }
 
 .faq-front, .faq-back {
