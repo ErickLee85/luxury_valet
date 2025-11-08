@@ -1,20 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Import GSAP from CDN first
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
-    document.head.appendChild(script);
-
-    // Import ScrollTrigger
-    const scrollTriggerScript = document.createElement('script');
-    scrollTriggerScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js';
-    document.head.appendChild(scrollTriggerScript);
-
-    // Wait for GSAP and ScrollTrigger to load
-    scrollTriggerScript.onload = () => {
-        gsap.registerPlugin(ScrollTrigger);
-        initAnimations();
-    };
+    gsap.registerPlugin(ScrollTrigger);
+    initAnimations()
 
     function initAnimations() {
         // Hero section animations
