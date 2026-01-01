@@ -1598,94 +1598,70 @@ footer {
 
   .modal-header {
     width: 100%;
-    height: 100px;
+    padding: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgb(115, 115, 115);
-
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .close-modal-btn {
     cursor: pointer;
-    margin-inline: 20px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+
+  .close-modal-btn:hover {
+    opacity: 1;
   }
   
   .modal-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
     color: white;
-    margin-inline: 20px;
+    letter-spacing: 0.02em;
   }
   
   .offer-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    margin: 1rem 0;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    margin-inline: 20px;
+    padding: 1.25rem 1.5rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .package-deal {
-    background-image: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('./images/350z.webp');
-    background-size: cover;
-    background-position: right;
-  }
-
-  .loyalty-reward {
-    background-image: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0.85)),url('./images/loyalty.webp');
-    background-size: cover;
-  }
-
-  .icon-wrapper {
-    background: var(--color-primary);
-    padding: 0.75rem;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .icon-wrapper svg {
-    width: 24px;
-    height: 24px;
-    color: white;
+  .offer-card:last-child {
+    border-bottom: none;
   }
   
   .offer-text h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
     color: white;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
   
   .offer-text p {
-    color: #d1d5db;
-    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+    font-weight: 300;
   }
   
   .close-button {
-    width: 90%;
-    padding: 1rem;
-    margin-top: 1.5rem;
+    width: calc(100% - 3rem);
+    padding: 0.875rem;
     border: none;
-    border-radius: 8px;
-    background: linear-gradient(to right, var(--color-primary), #9333ea);
-    color: white;
-    font-weight: bold;
+    background: white;
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
     cursor: pointer;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    margin: 20px;
-
+    transition: opacity 0.2s ease;
+    margin: 1.5rem;
   }
   
   .close-button:hover {
-    opacity: 0.9;
-    transform: scale(1.02);
+    opacity: 0.85;
   }
   
   @keyframes slideIn {
