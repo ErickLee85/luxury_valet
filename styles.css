@@ -24,6 +24,36 @@
     --border-color: rgb(56, 56, 56);
 }
 
+/* ScrollSmoother styles - Desktop only */
+@media (min-width: 769px) {
+    #smooth-wrapper {
+        overflow: hidden;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    
+    #smooth-content {
+        overflow: visible;
+        width: 100%;
+    }
+}
+
+/* Mobile - disable ScrollSmoother wrapper styles */
+@media (max-width: 768px) {
+    #smooth-wrapper,
+    #smooth-content {
+        overflow: visible;
+        position: static;
+        height: auto;
+        width: 100%;
+    }
+}
+
 :root {
     --shiny-cta-bg: var(--color-primary);
     --shiny-cta-bg-subtle: hsl(195, 100%, 30%);
@@ -1535,7 +1565,7 @@ footer {
     height: 100%;
     background: rgba(70, 70, 70, 0.5);
     backdrop-filter: blur(5px);
-    z-index: 1000;
+    z-index: 10000;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -1546,13 +1576,14 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%) scale(0.7);
     background: black;
-    border-radius: 15px;
+    border-radius: 3px;
     max-width: 500px;
     width: 90%;
     color: white;
     opacity: 0;
     transition: all 0.3s ease;
     overflow: hidden;
+    z-index: 10001;
   }
   
   .modal-overlay.active {
