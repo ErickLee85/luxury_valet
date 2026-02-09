@@ -818,6 +818,7 @@ button {
     gap: 1rem;
     margin-bottom: 2rem;
     font-size: 0.9rem;
+    justify-content: center;
 }
 
 
@@ -1681,3 +1682,277 @@ footer {
     }
     
   }
+
+/* ========================================
+   Special Offer / Luxury Combo Section
+   ======================================== */
+
+.special-offer-banner {
+    text-align: center;
+    padding: 60px 20px 60px;
+    position: relative;
+    background: white !important;
+}
+
+.special-offer-banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+.special-offer-banner > p {
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.special-offer-banner .holder {
+    display: flex;
+    justify-content: center;
+}
+
+.special-offer-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.offer-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b35, #ff3d00);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 5px rgba(255, 107, 53, 0.2); }
+}
+
+.special-card {
+    max-width: 500px;
+    width: 100%;
+    border: none !important;
+    position: relative;
+    overflow: visible;
+    background: #111 !important;
+}
+
+.special-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(0, 191, 255, 0.15));
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(8px);
+}
+
+/* Desktop: no card, spread layout */
+@media (min-width: 769px) {
+    .special-card {
+        background: transparent !important;
+        padding: 0;
+        max-width: 700px;
+    }
+
+    .special-card::before {
+        display: none;
+    }
+
+    .special-card .limited-time-badge {
+        display: none;
+    }
+
+    .special-card .pricing-icon {
+        display: none;
+    }
+
+    .special-card .package-name {
+        color: var(--color-primary);
+    }
+
+    .special-card .time {
+        color: #777;
+    }
+
+    .special-card .price-label {
+        color: #777;
+    }
+
+    .special-card .price-value {
+        color: #1a1a1a;
+    }
+
+    .special-card .combo-section-label {
+        color: var(--color-primary);
+        border-top-color: rgba(0, 191, 255, 0.2);
+    }
+
+    .special-card .feature-item {
+        color: #444;
+    }
+
+    .special-card .feature-item::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300bfff'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+    }
+
+    .special-card .combo-optionals {
+        background: rgba(0, 191, 255, 0.04);
+        border-color: rgba(0, 191, 255, 0.15);
+    }
+
+    .special-card .optional-item {
+        color: #555;
+        border-bottom-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .special-card .combo-availability {
+        background: rgba(0, 191, 255, 0.04);
+        border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .special-card .availability-title {
+        color: #1a1a1a;
+    }
+
+    .special-card .availability-title svg {
+        stroke: #1a1a1a;
+    }
+
+    .special-card .location-tag {
+        background: rgba(0, 191, 255, 0.08);
+        border-color: rgba(0, 191, 255, 0.2);
+    }
+}
+
+.limited-time-badge {
+    background: linear-gradient(135deg, #ff6b35, #ff3d00);
+    color: white;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.combo-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 20px 0 10px;
+    padding-top: 15px;
+    border-top: 1px solid hsla(195, 100%, 50%, 0.15);
+}
+
+.combo-optionals {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px dashed hsla(195, 100%, 50%, 0.25);
+}
+
+.optional-title {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.optional-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    color: #ccc;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.optional-item:last-child {
+    border-bottom: none;
+}
+
+.optional-price {
+    color: var(--color-primary);
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.combo-availability {
+    margin-top: 20px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.availability-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.availability-title svg {
+    stroke: #fff;
+}
+
+.availability-locations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.location-tag {
+    background: rgba(0, 191, 255, 0.1);
+    color: var(--color-primary);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+/* Responsive for special offer */
+@media (max-width: 768px) {
+    .special-offer-banner h2 {
+        font-size: 1.8rem;
+    }
+
+    .special-card {
+        max-width: 100%;
+    }
+
+    .optional-item {
+        font-size: 0.85rem;
+    }
+}
