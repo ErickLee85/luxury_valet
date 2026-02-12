@@ -4,7 +4,7 @@
 
 // Base URL for the reviews API
 // TODO: Update this to your production server URL
-const REVIEWS_API_URL = 'https://your-server-url.com/reviews';
+const REVIEWS_API_URL = 'https://dbb-node-server.vercel.app/reviews';
 
 // Local cache of fetched reviews
 let cachedReviews = [];
