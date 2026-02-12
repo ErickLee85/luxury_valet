@@ -1300,6 +1300,14 @@ button {
     margin-bottom: 4rem;
 }
 
+/* Few reviews - centered single column */
+.reviews-grid.reviews-few {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Individual Review Card */
 .review-card {
     background: rgb(14, 14, 14);

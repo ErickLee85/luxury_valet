@@ -56,6 +56,13 @@ function renderReviews(reviews) {
         return;
     }
 
+    // Use centered single-column layout for 1-2 reviews, grid for 3+
+    if (reviews.length <= 2) {
+        grid.classList.add('reviews-few');
+    } else {
+        grid.classList.remove('reviews-few');
+    }
+
     grid.innerHTML = reviews.map(review => {
         const initials = review.name.charAt(0).toUpperCase();
         const rating = review.rating || 5;
