@@ -614,7 +614,7 @@ button {
     padding-bottom: 20px;
 }
 
-.cars-intro h2, .cars-intro-mobile h2, .pricing-container h2, .extra-services-section h2, .modern-faq h2, .promo-content h2, .special-text {
+.cars-intro h2, .cars-intro-mobile h2, .pricing-container h2, .extra-services-section h2, .discounts-section h2, .modern-faq h2, .promo-content h2, .special-text {
     color: var(--color-white);
     font-size: clamp(2.5rem, 10vw, 5rem) !important;
     line-height: 1.2;
@@ -955,6 +955,97 @@ button {
     }
 }
 
+/* Discounts & Rewards Section */
+.discounts-section {
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+}
+
+.discounts-section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.discounts-subtitle {
+    text-align: center;
+    color: var(--color-light-gray);
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+}
+
+.discounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.discount-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    transition: var(--transition-standard);
+    text-align: center;
+}
+
+.discount-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px hsla(195, 100%, 50%, 0.15);
+}
+
+.discount-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    background: hsla(195, 100%, 50%, 0.1);
+    color: var(--color-primary);
+}
+
+.discount-card h3 {
+    color: var(--color-white);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.discount-card p {
+    color: var(--color-light-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+.discount-card p strong {
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .discounts-section {
+        padding: 2rem 1rem;
+    }
+
+    .discounts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .discount-card {
+        padding: 1.5rem 1.25rem;
+    }
+}
+
 /* Add these styles to your stylesheet */
 .extra-services-section {
     padding: 4rem 2rem;
@@ -1139,14 +1230,13 @@ button {
 }
 
 .modern-faq-container {
-    min-height: 100vh;
     width: 100%;
-    background:rgb(14,14,14);
+    background: rgb(14, 14, 14);
 }
 
 .modern-faq {
     padding: 4rem 1rem;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     background: transparent;
 }
@@ -1157,96 +1247,83 @@ button {
     color: white;
 }
 
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 0rem;
-}
-
-.faq-card {
-    perspective: 1000px;
-    height: 350px;
-}
-
-.faq-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-}
-
-/* Disable 3D flip on hover since we're using modal for all devices */
-/* .faq-card:hover .faq-content {
-    transform: rotateY(180deg);
-} */
-
-.faq-card:hover {
-    transform: translateY(-2px);
-}
-
-.faq-front, .faq-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    padding: 2rem;
-    background:black;
-    border: 1px solid var(--border-color);
+.faq-accordion {
     display: flex;
     flex-direction: column;
+    gap: 0;
 }
 
-.faq-front {
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--border-color);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.faq-back {
-    transform: rotateY(180deg);
-    overflow-y: auto;
-    color: white !important;
-    scrollbar-width: none;
-}
-
-.faq-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 1rem;
-    stroke: var(--color-primary);
-}
-
-.faq-front h3 {
+    justify-content: space-between;
+    padding: 1.25rem 0.5rem;
+    background: none;
+    border: none;
     color: white;
-    margin: 0.5rem 0;
-    font-size: 1.25rem;
-}
-
-.preview-text {
-    color: #94a3b8;
-    margin: 0;
-    font-size: 0.95rem;
-}
-
-.faq-back p {
-    color: white;
-    margin: 0 0 1rem 0;
-    line-height: 1.6;
+    font-size: 1.05rem;
     font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s;
 }
 
-.faq-back ul {
-    margin: 0 0 1rem 1.2rem;
+.faq-question:hover {
+    color: var(--color-primary);
+}
+
+.faq-chevron {
+    flex-shrink: 0;
+    stroke: var(--color-primary);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-chevron {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer-inner {
+    padding: 0 0.5rem 1.5rem;
+}
+
+.faq-answer-inner p {
+    color: #c8c8c8;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.6;
+}
+
+.faq-answer-inner ul {
+    margin: 0 0 0.75rem 1.2rem;
     padding: 0;
-    color:#94a3b8;
+    color: #94a3b8;
 }
 
-.faq-back li {
-    margin-bottom: 0.5rem;
+.faq-answer-inner li {
+    margin-bottom: 0.4rem;
+}
+
+.faq-answer-inner li::marker {
+    color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
@@ -1254,13 +1331,9 @@ button {
         padding: 3rem 1rem;
     }
 
-    .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .faq-card {
-        height: 280px;
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 1rem 0.25rem;
     }
 }
 

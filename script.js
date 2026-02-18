@@ -145,18 +145,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // FAQ cards animation
-        gsap.utils.toArray(".faq-card").forEach((card, i) => {
-            gsap.from(card, {
+        // FAQ accordion animation
+        gsap.utils.toArray(".faq-item").forEach((item, i) => {
+            gsap.from(item, {
                 scrollTrigger: {
-                    trigger: card,
-                    start: "top 85%",
+                    trigger: item,
+                    start: "top 90%",
                     toggleActions: "play none none reverse"
                 },
-                y: 30,
+                y: 20,
                 opacity: 0,
-                duration: 0.8,
-                delay: i * 0.15
+                duration: 0.5,
+                delay: i * 0.1
             });
         });
 
