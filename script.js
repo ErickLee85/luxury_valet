@@ -1,5 +1,48 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Mobile menu toggle functionality
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileSidebar = document.querySelector('.mobile-sidebar');
+    const mobileOverlay = document.querySelector('.mobile-overlay');
+    const mobileClose = document.querySelector('.mobile-menu-close');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+    function openMobileMenu() {
+        if (mobileToggle) mobileToggle.classList.add('active');
+        if (mobileSidebar) mobileSidebar.classList.add('active');
+        if (mobileOverlay) mobileOverlay.classList.add('active');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+        if (mobileSidebar) mobileSidebar.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        if (mobileToggle) mobileToggle.classList.remove('active');
+        if (mobileSidebar) mobileSidebar.classList.remove('active');
+        if (mobileOverlay) mobileOverlay.classList.remove('active');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+        if (mobileSidebar) mobileSidebar.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            if (mobileSidebar && mobileSidebar.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+    }
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileSidebar && mobileSidebar.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
     gsap.registerPlugin(ScrollTrigger);
     initAnimations()
 
@@ -229,54 +272,57 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 250);
     });
 
-    var form = document.getElementById("contactForm");
-    var status = document.getElementById("my-form-status");
+    function initContactForm(formId, statusId) {
+        const form = document.getElementById(formId);
+        const status = document.getElementById(statusId);
+        if (!form || !status) return;
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-        let isValid = true;
-        const submitButton = form.querySelector('.submit-btn');
-        const loader = submitButton.querySelector('.loader');
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const submitButton = form.querySelector('.submit-btn, .hero-submit-btn');
+            const loader = submitButton.querySelector('.loader');
 
-        // Start loading state
-        submitButton.disabled = true;
-        loader.style.display = 'inline-block';
+            // Start loading state
+            submitButton.disabled = true;
+            loader.style.display = 'inline-block';
 
-        try {
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-            if (response.ok) {
-                form.reset();
-                status.innerHTML = "Thanks! Your message has been sent.";
-                status.style.color = "lime";
-            } else {
-                const data = await response.json();
-                if (Object.hasOwn(data, 'errors')) {
-                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                if (response.ok) {
+                    form.reset();
+                    status.innerHTML = "Thanks! Your message has been sent.";
+                    status.style.color = "lime";
                 } else {
-                    status.innerHTML = "Oops! There was a problem submitting your form";
+                    const data = await response.json();
+                    if (Object.hasOwn(data, 'errors')) {
+                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        status.innerHTML = "Oops! There was a problem submitting your form";
+                    }
+                    status.style.color = "red";
                 }
+            } catch (error) {
+                status.innerHTML = "Oops! There was a problem submitting your form";
                 status.style.color = "red";
+                console.log(error.message)
+            } finally {
+                submitButton.disabled = false;
+                loader.style.display = 'none';
             }
-        } catch (error) {
-            status.innerHTML = "Oops! There was a problem submitting your form";
-            status.style.color = "red";
-            console.log(error.message)
-        } finally {
-            submitButton.disabled = false;
-            loader.style.display = 'none';
         }
-    }
 
-    if (form) {
         form.addEventListener("submit", handleSubmit);
     }
+
+    initContactForm("contactForm", "my-form-status");
+    initContactForm("heroContactForm", "hero-form-status");
 
     window.addEventListener('load', function() {
         const exteriorContent = document.querySelector('.service-content-exterior');

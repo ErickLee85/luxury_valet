@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,7 +120,49 @@
                   </a>
                 </li>
             </ul>
+            <button class="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
+        <div class="mobile-sidebar" aria-hidden="true">
+            <div class="mobile-sidebar-header">
+                <p class="comp-name"></p>
+                <button class="mobile-menu-close" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#exterior-prices">Services</a></li>
+                <li><a href="#combo-special">Luxury Combo</a></li>
+                <li><a href="#discounts">Discounts</a></li>
+                <li><a href="#add-ons">Add-Ons</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact-sect">Contact</a></li>
+            </ul>
+            <div class="mobile-contact-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
+                    New Plymouth-Stratford
+                </p>
+                <a href="tel:02108875353">
+                    <svg data-slot="icon" height="20px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"></path>
+                      </svg>
+                    02108875353
+                </a>
+                <a href="mailto:luxuryvaletnz@gmail.com">
+                    <svg data-slot="icon" fill="none" stroke-width="1.5" height="20px" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path>
+                      </svg>
+                    luxuryvaletnz@gmail.com
+                </a>
+            </div>
+        </div>
+        <div class="mobile-overlay"></div>
     </header>
 
     <!-- Main content area -->
@@ -128,32 +173,64 @@
                 <div class="hero-slide"></div>
                 <div class="hero-slide"></div>
                 <div class="hero-slide"></div>
+                <div class="hero-slide"></div>
+                <div class="hero-slide"></div>
             </div>
-          <div style=" max-width: 1200px; z-index: 1; position: relative;">
-            <p style="font-style: italic;"><span class="highlight">Elevate</span> Your<br>Ride</p>
-         
-                <h1 class="subtext">Premium mobile car detailing in New Plymouth-Stratford. From basic washes to luxury details, we bring professional valeting services directly to your location.
-                </h1>
-            <!-- <div style="display: flex; gap: 20px;">
-                <div>
-                    <img class="checkmark-icon" src="./images/icons8-approval-50.png" width="50px" height="50px" alt="checkmark image">
+          <div class="hero-main" style="max-width: 1200px; z-index: 1; position: relative;">
+            <div class="hero-content">
+                <p><span class="highlight">Elevate</span> Your<br>Ride</p>
+            
+                    <h1 class="subtext">Premium mobile car detailing in New Plymouth-Stratford. From basic washes to luxury details, we bring professional valeting services directly to your location.
+                    </h1>
+                <a href="#exterior-prices">
+                    <button class="shiny-cta">
+                    <span style="display: flex; align-items: center; gap: 10px;">
+                        View Services
+                        <svg data-slot="icon" height="25px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25"></path>
+                        </svg>
+                    </span>
+                    </button>
+                </a>
+            </div>
+            <div class="hero-form-wrapper">
+                <div class="hero-form">
+                    <h3>Book Your Detail</h3>
+                    <span class="booking-intro">Enter your details below and we'll get back to you soon.</span>
+                    <form id="heroContactForm" action="https://formspree.io/f/meoqyvjz" method="POST">
+                        <div class="hero-field">
+                            <label for="heroName">Name</label>
+                            <input type="text" id="heroName" name="name" required>
+                            <svg data-slot="icon" class="hero-field-icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                            </svg>
+                        </div>
+                        <div class="hero-field">
+                            <label for="heroEmail">Email</label>
+                            <input type="email" id="heroEmail" name="email" required>
+                            <svg data-slot="icon" class="hero-field-icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path>
+                            </svg>
+                        </div>
+                        <div class="hero-field">
+                            <label for="heroPhone">Phone</label>
+                            <input type="tel" id="heroPhone" name="phone">
+                            <svg data-slot="icon" class="hero-field-icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"></path>
+                            </svg>
+                        </div>
+                        <div class="hero-field">
+                            <label for="heroMessage">Message</label>
+                            <textarea id="heroMessage" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="hero-submit-btn">
+                            Submit
+                            <span class="loader"></span>
+                        </button>
+                    </form>
+                    <div id="hero-form-status"></div>
                 </div>
-                <div>
-              
-                </div>
-            </div> -->
-            <!-- <span class="availability" >10% off combined interior & exterior packages</span>
-            <span class="availability">30% off for returing customers within 60 days</span> -->
-            <a href="#exterior-prices">
-                <button class="shiny-cta">
-                   <span style="display: flex; align-items: center; gap: 10px;">
-                    View Services
-                    <svg data-slot="icon" height="25px" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 4.5 15 15m0 0V8.25m0 11.25H8.25"></path>
-                      </svg>
-                   </span>
-                </button>
-            </a>
+            </div>
           </div>
           <div class="custom-shape-divider-bottom-1734600686">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -231,7 +308,7 @@
         
 
         <!-- LIMITED TIME OFFER: Luxury Combo Special -->
-        <section class="special-offer-banner">
+        <section class="special-offer-banner" id="combo-special">
             <div class="offer-badge">LIMITED TIME OFFER</div>
             <h2><span class="highlight"><strong>Luxury</strong></span> Combo Special</h2>
             <p>Experience the best of both worlds — a premium exterior wash paired with a full interior clean, all in one convenient session.</p>
@@ -585,7 +662,7 @@
         </section>
 
         <!-- Discounts & Rewards Section -->
-        <section class="discounts-section">
+        <section class="discounts-section" id="discounts">
             <h2><span class="highlight"><strong>Discounts</strong></span> & Rewards</h2>
             <p class="discounts-subtitle">We value our customers — enjoy these exclusive offers and savings. All discounts are to be discussed at the time of booking.</p>
             <div class="discounts-grid">
@@ -646,7 +723,7 @@
             </div>
         </section>
 
-        <section class="extra-services-section">
+        <section class="extra-services-section" id="add-ons">
             <h2><span class="highlight"><strong>Add-On</strong></span> Services & Charges</h2>
             <div class="services-grid">
                 <div class="service-category">
@@ -762,7 +839,7 @@
                 </div>
             </div>
         </section>
-        <section class="modern-faq-container">
+        <section class="modern-faq-container" id="faq">
             <div class="modern-faq">
                 <h2><span class="highlight"><strong>Common</strong></span> Questions</h2>
                 <div class="faq-accordion">
