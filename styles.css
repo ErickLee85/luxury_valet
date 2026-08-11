@@ -25,13 +25,13 @@
 }
 
 /* Custom Fonts */
-@font-face {
+/* @font-face {
     font-family: 'Racing Sans One';
     src: url('./public/fonts/Racing_Sans_One/RacingSansOne-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
-}
+} */
 
 /* ScrollSmoother styles - Desktop only */
 @media (min-width: 769px) {
@@ -592,7 +592,7 @@ nav ul li {
 }
 
 #hero p {
-    font-family: 'Racing Sans One', system-ui, -apple-system, sans-serif;
+    font-family:system-ui, -apple-system, sans-serif;
     font-size: clamp(2.5rem, 10vw, 6rem);
     line-height: 1.1;
     margin-bottom: var(--spacing-standard);
@@ -664,7 +664,7 @@ nav ul li {
     margin-bottom: 0.5rem;
     color: white !important;
     text-transform: uppercase;
-    font-family: 'Racing Sans One', system-ui, -apple-system, sans-serif;
+    font-family:system-ui, -apple-system, sans-serif;
     line-height: 1.2;
 }
 
